@@ -30,17 +30,29 @@ def visualize_high_pass_filter(image):
         [0, -1, 0]
     ])
 
+    # Note that changing the values will yield the same output
+    high_pass_kernel_decimal = np.array([
+        [0, -0.2, 0],
+        [-0.2, 0.8, -0.2],
+        [0, -0.2, 0]
+    ])
+
     # Convolve the image using the high-pass filter
     convolved_image = cv2.filter2D(img_grayscale, -1, high_pass_kernel)
+    convolved_image_decimal = cv2.filter2D(img_grayscale, -1, high_pass_kernel_decimal)
 
     # let's compare original image with convolved image
-    fig, (left_axis, right_axis) = plt.subplots(1, 2, figsize=(10, 5))
+    fig, (left_axis, middle_axis, right_axis) = plt.subplots(1, 3, figsize=(10, 5))
 
     left_axis.set_title("Original image")
     left_axis.imshow(img_grayscale, cmap='gray')
 
-    right_axis.set_title("Convolved image")
-    right_axis.imshow(convolved_image, cmap='gray')
+    middle_axis.set_title("Convolved image")
+    middle_axis.imshow(convolved_image, cmap='gray')
+
+    right_axis.set_title("Convolved image decimal")
+    right_axis.imshow(convolved_image_decimal, cmap='gray')
+
     fig.show()
 
 
