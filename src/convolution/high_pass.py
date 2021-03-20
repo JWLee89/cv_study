@@ -30,7 +30,9 @@ def visualize_high_pass_filter(image):
         [0, -1, 0]
     ])
 
-    # Note that changing the values will yield the same output
+    # Note that each corresponding value is multiplied by the weight,
+    # meaning although the intensity will change with value of the weights,
+    # since the ratio is the same (adds up to zero), we will get an output that looks similar
     high_pass_kernel_decimal = np.array([
         [0, -0.2, 0],
         [-0.2, 0.8, -0.2],
