@@ -4,6 +4,9 @@ import matplotlib.pyplot as plt
 """
 Main idea: Low pass filters block high-frequency parts of an image. 
 In other words, it has blurring effect on images.
+
+Mathematically, we are taking the average of the center pixel and its surrounding
+neighbors.
 """
 
 
