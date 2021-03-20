@@ -21,9 +21,12 @@ def visualize_high_pass_filter(image):
 
     # High pass filters should add to zero.
     # For example, like the 3x3 filter below
+    # Why? Because we are computing the change of a pixel compared to neighboring pixels
+    # in the example below, as we slide our kernel, we are comparing
+    # the difference between 4 and the neighboring grids with values -1
     high_pass_kernel = np.array([
         [0, -1, 0],
-        [-1, 4, 1],
+        [-1, 4, -1],
         [0, -1, 0]
     ])
 
@@ -34,10 +37,10 @@ def visualize_high_pass_filter(image):
     fig, (left_axis, right_axis) = plt.subplots(1, 2, figsize=(10, 5))
 
     left_axis.set_title("Original image")
-    left_axis.imshow(img_grayscale)
+    left_axis.imshow(img_grayscale, cmap='gray')
 
     right_axis.set_title("Convolved image")
-    right_axis.imgshow(convolved_image)
+    right_axis.imshow(convolved_image, cmap='gray')
     fig.show()
 
 
