@@ -139,6 +139,7 @@ def visualize_conv(image, kernel):
 
 
 if __name__ == "__main__":
+    # Pass in your own sample image
     image = cv2.imread("../../images/cat_image.jpeg")
     # By default, cv2 images are read as BGR instead of RBG
     image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
