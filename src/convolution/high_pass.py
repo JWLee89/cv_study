@@ -121,15 +121,42 @@ def visualize_vertical_edges(image):
     fig.show()
 
 
+def visualize_conv(image, kernel):
+    # A general function for visualizing kernels
+    img_copy = np.copy(image)
+    gray_image = cv2.cvtColor(img_copy, cv2.COLOR_RGB2GRAY)
+
+    convolved_image = cv2.filter2D(gray_image, -1, kernel)
+
+    fig, (left_axis, right_axis) = plt.subplots(1, 2, figsize=(30, 15))
+
+    left_axis.set_title("Original image")
+    left_axis.imshow(gray_image, cmap="gray")
+
+    right_axis.set_title("Convolved image")
+    right_axis.imshow(convolved_image)
+    fig.show()
+
+
 if __name__ == "__main__":
     image = cv2.imread("../../images/cat_image.jpeg")
     # By default, cv2 images are read as BGR instead of RBG
     image_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
-    # Visualize high pass filter
-    visualize_high_pass_filter(image)
+    # # Visualize high pass filter
+    # visualize_high_pass_filter(image)
+    #
+    # # Visualize horizontal edge detector
+    # visualize_horizontal_edges(image)
+    #
+    # visualize_vertical_edges(image)
 
-    # Visualize horizontal edge detector
-    visualize_horizontal_edges(image)
-
-    visualize_vertical_edges(image)
+    # Create your own filters and test!
+    sample_kernel = np.array([
+        [-1, -1, -1, -1, -1],
+        [-1, -2, -3 , -2, -1],
+        [0, 0, 0, 0, 0],
+        [1, 2, 3, 2, 1],
+        [1, 1, 1, 1, 1]
+    ])
+    visualize_conv(image_rgb, sample_kernel)
