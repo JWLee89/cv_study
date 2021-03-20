@@ -5,6 +5,12 @@ import matplotlib.pyplot as plt
 Goal of high-pass filters is to
 1. Sharpen images
 2. Enhance high-frequency parts of an image
+
+Main idea: high pass filters AMPLIFIES noise.
+Conversely, low pass filters smoothen out noise. 
+
+So often, loss pass filters are applied to filter out noise and smoothen the original image.
+Afterwards, a high pass filter is applied to capture salient features in an image
 """
 
 
