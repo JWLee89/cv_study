@@ -64,6 +64,37 @@ def visualize_high_pass_filter(image):
     fig.show()
 
 
+def visualize_horizontal_edge_detector(image):
+    # Since basic comments are made above,
+    # we will minimize duplicate comments
+
+    img_copy = np.copy(image)
+    grayscale_image = cv2.cvtColor(img_copy, cv2.COLOR_RGB2GRAY)
+
+    # Horizontal edge detection
+    # We want to compute the difference in intensity between
+    # first row and third row
+    # Note we are placing greater emphasis on the middle pixel
+    # Feel free to play around with these values to develop intuition
+    # Bigger the weights, the greater the intensity will be
+    horizontal_edge_kernel = np.array([
+        [-4, -6, -4],
+        [0, 0, 0],
+        [4, 6, 4]
+    ])
+
+    convolved_image = cv2.filter2D(grayscale_image, -1, horizontal_edge_kernel)
+
+    fig, (left_axis, right_axis) = plt.subplots(1, 2, figsize=(20, 10))
+
+    left_axis.set_title("Original image")
+    left_axis.imshow(grayscale_image, cmap='gray')
+
+    right_axis.set_title("Convolved image")
+    right_axis.imshow(convolved_image, cmap='gray')
+    fig.show()
+
+
 if __name__ == "__main__":
     image = cv2.imread("../../images/cat_image.jpeg")
     # By default, cv2 images are read as BGR instead of RBG
@@ -71,3 +102,6 @@ if __name__ == "__main__":
 
     # Visualize high pass filter
     visualize_high_pass_filter(image)
+
+    # Visualize horizontal edge detector
+    visualize_horizontal_edge_detector(image)
