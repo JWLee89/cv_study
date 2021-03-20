@@ -1,6 +1,11 @@
 # CV Study
 
-A repository where I practice the fundamentals of computer vision.
+A repository where I practice the fundamentals of computer vision. These notes are
+based off my work on the [Computer Vision Nanodegree](https://www.udacity.com/course/computer-vision-nanodegree--nd891) from Udacity. 
+Note that this is not an affiliate link and I don't receive any compensation from Udacity whatsoever.
+
+The code and comments are purely to help myself and those who are interested
+in studying and learning about computer vision.
 
 ## Dependencies
 
