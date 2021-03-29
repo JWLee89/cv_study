@@ -14,3 +14,12 @@ The following libraries are required
 - numpy
 - open cv
 - matplotlib
+
+## Experiments
+
+Note that image captioning and object 
+detection is performed on the MS-coco dataset 
+provided by microsoft. 
+To get the example working, we need to first download 
+the dataset. There are many working examples online 
+(for example, [here](https://mravendi.github.io/2019/06/20/pytorch-coco.html))
