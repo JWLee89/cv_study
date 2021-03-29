@@ -8,7 +8,9 @@ from torchvision import transforms
 
 def get_coco(data_path):
     """
-
+    Get coco dataset from local data path.
+    Note: data must already be downloaded and available 
+    on local disk.
     Args:
         data_path ():
 
